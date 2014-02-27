@@ -1,7 +1,7 @@
 class User
   include Mongoid::Document
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # :confirmable, :lockable, :timeoutable and :omniauthable :validatable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
@@ -39,12 +39,14 @@ class User
   validates_presence_of :email
 
   attr_accessor :login
-  def self.find_first_by_auth_conditions(warden_conditions)
+  # function to handle user's login via email or username
+  def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
-    if login = conditions.delete(:username)
-      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    if login = conditions.delete(:login).downcase
+      where(conditions).where('$or' => [ {:username => /^#{Regexp.escape(login)}$/i}, {:email => /^#{Regexp.escape(login)}$/i} ]).first
     else
       where(conditions).first
     end
   end
+
 end
