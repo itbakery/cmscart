@@ -1,6 +1,8 @@
 class User
   include Mongoid::Document
   rolify
+  has_one :profile
+  accepts_nested_attributes_for :profile
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable :validatable
   devise :database_authenticatable, :registerable,
@@ -49,5 +51,8 @@ class User
       where(conditions).first
     end
   end
-
+  protected
+  def profile
+    super || build_profile
+  end
 end
