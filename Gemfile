@@ -46,6 +46,7 @@ gem 'rename'
 gem 'devise'
 gem 'bson_ext', :platform => "ruby"
 gem 'mongoid', :github => 'mongoid/mongoid'
+gem 'mongoid-tree', :require => 'mongoid/tree'
 gem 'cancan'
 gem 'ckeditor'
 gem 'carrierwave'

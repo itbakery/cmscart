@@ -118,6 +118,8 @@ GEM
     mini_magick (3.7.0)
       subexec (~> 0.2.1)
     minitest (4.7.5)
+    mongoid-tree (1.0.4)
+      mongoid (>= 3.0, <= 4.0)
     mongoid_taggable (1.1.1)
       mongoid (>= 3)
       rake
@@ -236,6 +238,7 @@ DEPENDENCIES
   mini_magick
   mongoid!
   mongoid-grid_fs!
+  mongoid-tree
   mongoid_taggable
   omniauth
   omniauth-facebook

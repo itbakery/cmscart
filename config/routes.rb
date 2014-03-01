@@ -1,4 +1,6 @@
 Cmscart::Application.routes.draw do
+  resources :categories
+
   resources :profiles
 
   devise_for :users
