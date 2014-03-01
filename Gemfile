@@ -41,7 +41,9 @@ gem 'bcrypt'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'twitter-bootswatch-rails', :github => 'scottvrosenthal/twitter-bootswatch-rails'
+gem 'bootstrap-sass'
+gem 'rails_layout', github: 'RailsApps/rails_layout'
+gem 'bootstrap-generators', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
 gem 'rename'
 gem 'devise'
 gem 'bson_ext', :platform => "ruby"

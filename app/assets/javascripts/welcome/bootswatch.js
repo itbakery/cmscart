@@ -1,3 +1,0 @@
-// Welcome
-// Bootswatch
-// bootswatch.js
