@@ -1,7 +1,7 @@
 class User
   include Mongoid::Document
   rolify
-  has_one :profile
+  has_one :profile, dependent: :destroy,  autosave: true
   accepts_nested_attributes_for :profile
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable :validatable
@@ -50,9 +50,5 @@ class User
     else
       where(conditions).first
     end
-  end
-  protected
-  def profile
-    super || build_profile
   end
 end
